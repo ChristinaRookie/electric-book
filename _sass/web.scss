@@ -48,6 +48,8 @@ $font-size-bigger: 2 !default; // How many times bigger than font-size-default f
 
 // Do you want space between paragraphs, rather than a text-indent? true or false
 $spaced-paras: true !default;
+// If not spacing paras, how large is the first-line indent on paragraphs?
+$paragraph-indent: 1em !default;
 
 // Rounded corners
 $button-border-radius: 0.1em !default; // Roundness of button corners
@@ -126,6 +128,7 @@ $nav-bar-scrollbar: true !default;
 $nav-bar-width: 15em !default;
 $nav-bar-fixed: true !default; // fixed is not fully supported on many mobile browsers
 $nav-bar-back-button-hide: true !default;
+$nav-bar-title-color: $color-text-secondary !default;
 $nav-bar-label-color: $color-light !default;
 $nav-bar-label-background-color: $masthead-background-color !default;
 $nav-bar-label-border-color: transparent !default;
@@ -209,6 +212,7 @@ $web-verse: true !default;
 $web-video: true !default;
 $web-pagination: true !default;
 $web-questions: true !default;
+$web-select-questions: true !default;
 
 // Docs
 $web-docs: true !default;
@@ -220,7 +224,7 @@ $web-fitting: true !default;  // E.g. tracking and shrinking
 // Controls
 $web-controls: true !default;
 $web-language-select: true !default;
-$web-annotator: false !default;
+$web-annotator: true !default;
 
 // Logic (if this then that)
 $web-reset-sequences: true !default; // This should stay last in the @import list
@@ -237,6 +241,10 @@ $web-reset-sequences: true !default; // This should stay last in the @import lis
 
 // Reset browser CSS as best we can
 @import "partials/web-css-reset";
+
+// Load general-purpose mixins
+@import "partials/web-mixins--buttons";
+@import "partials/web-mixins--sidenotes";
 
 // Structural HTML components
 @import "partials/web-wrappers";
@@ -284,6 +292,7 @@ $web-reset-sequences: true !default; // This should stay last in the @import lis
 @import "partials/web-video";
 @import "partials/web-pagination";
 @import "partials/web-questions";
+@import "partials/web-select-questions";
 
 // Docs
 @import "partials/web-docs";

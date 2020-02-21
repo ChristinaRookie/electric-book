@@ -86,7 +86,7 @@
     {% endif %}
 
     <link rel="stylesheet" type="text/css" href="{{ path-to-styles-directory }}/{{ epub-stylesheet }}" />
-    
+
     {% comment %}Metadata defined in page frontmatter overrides
     project metadata, which is the default from meta.yml.{% endcomment %}
     {% if page.title %}{% capture title %}{{ page.title }}{% endcapture %}{% endif %}
@@ -145,21 +145,21 @@
         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
             * Enable inline JS: add 'unsafe-inline' to default-src
     {% endcomment %}
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://fonts.googleapis.com https://www.youtube.com http://player.vimeo.com; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;{% if site.mathjax-enabled == true %} script-src 'self' 'unsafe-inline' 'unsafe-eval';{% endif %}">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://fonts.googleapis.com https://www.youtube.com http://player.vimeo.com; style-src 'self' 'unsafe-inline'; media-src * content:; img-src 'self' data: content:;{% if site.mathjax-enabled == true %} script-src 'self' 'unsafe-inline' 'unsafe-eval';{% endif %}">
 
     {% comment %}If we're not in a book subdirectory, load the project stylesheet.
     Otherwise, load the styles for this book. {% endcomment %}
-    {% if is-homepage == true or is-project-search == true or page.collection == "docs" %}
-        <link rel="stylesheet" type="text/css" media="all" href="{{ site.baseurl }}/assets/styles/{{ app-stylesheet }}" />
+    {% if is-homepage == true or is-project-search == true or page.collection == "docs" or is-translation-homepage == true %}
+        <link rel="stylesheet" type="text/css" media="all" href="{{ path-to-root-directory }}assets/styles/{{ app-stylesheet }}" />
     {% else %}
 
-    {% comment %}If this is a translation with its own styles,
-    load the parent styles first, then translation styles override them.{% endcomment %}
-    {% if is-translation and translation-styles-exist %}
-        <link rel="stylesheet" type="text/css" href="{{ path-to-parent-styles-directory }}/{{ app-stylesheet }}" />
-    {% endif %}
+        {% comment %}If this is a translation with its own styles,
+        load the parent styles first, then translation styles override them.{% endcomment %}
+        {% if is-translation and translation-styles-exist %}
+            <link rel="stylesheet" type="text/css" href="{{ path-to-parent-styles-directory }}/{{ app-stylesheet }}" />
+        {% endif %}
 
-    <link rel="stylesheet" type="text/css" href="{{ path-to-styles-directory }}/{{ app-stylesheet }}" />
+        <link rel="stylesheet" type="text/css" href="{{ path-to-styles-directory }}/{{ app-stylesheet }}" />
 
     {% endif %}
 
@@ -218,35 +218,35 @@
     <meta property="og:description" content="{{ og-description }}" />
 
     {% if page.image %}
-        {% if is-homepage == true or is-project-search == true %}
+        {% if is-homepage == true or is-project-search == true or is-translation-homepage == true %}
             {% comment %}If a page.image is specified on the home page, we still use the project image{% endcomment %}
             <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/assets/{{ project-image }}" />
         {% else %}
             <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/{{ book-directory }}/{{ site.image-set }}/{{ page.image }}" />
         {% endif %}
-    {% elsif is-homepage == true or is-project-search == true %}
-    <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/assets/{{ project-image }}" />
+    {% elsif is-homepage == true or is-project-search == true or is-translation-homepage == true %}
+        <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/assets/{{ project-image }}" />
     {% elsif web-image != "" %}
-    <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/{{ book-directory }}/{{ site.image-set }}/{{ web-image }}" />
+        <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/{{ book-directory }}/{{ site.image-set }}/{{ web-image }}" />
     {% elsif image != "" %}
-    <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/{{ book-directory }}/{{ site.image-set }}/{{ image }}" />
+        <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/{{ book-directory }}/{{ site.image-set }}/{{ image }}" />
     {% else %}
-    <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/assets/{{ project-image }}" />
+        <meta property="og:image" content="{{ site.canonical-url }}{{ site.baseurl }}/assets/{{ project-image }}" />
     {% endif %}
 
     {% comment %}If we're not in a book subdirectory, load the project stylesheet.
     Otherwise, load the styles for this book. {% endcomment %}
-    {% if is-homepage == true or is-project-search == true or page.collection == "docs" %}
+    {% if is-homepage == true or is-project-search == true or page.collection == "docs" or is-translation-homepage == true %}
         <link rel="stylesheet" type="text/css" media="all" href="{{ site.baseurl }}/assets/styles/{{ web-stylesheet }}" />
     {% else %}
 
-    {% comment %}If this is a translation with its own styles,
-    load the parent styles first, then translation styles override them.{% endcomment %}
-    {% if is-translation and translation-styles-exist %}
-        <link rel="stylesheet" type="text/css" href="{{ path-to-parent-styles-directory }}/{{ web-stylesheet }}" />
-    {% endif %}
+        {% comment %}If this is a translation with its own styles,
+        load the parent styles first, then translation styles override them.{% endcomment %}
+        {% if is-translation and translation-styles-exist %}
+            <link rel="stylesheet" type="text/css" href="{{ path-to-parent-styles-directory }}/{{ web-stylesheet }}" />
+        {% endif %}
 
-    <link rel="stylesheet" type="text/css" href="{{ path-to-styles-directory }}/{{ web-stylesheet }}" />
+        <link rel="stylesheet" type="text/css" href="{{ path-to-styles-directory }}/{{ web-stylesheet }}" />
 
     {% endif %}
 

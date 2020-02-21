@@ -5,6 +5,7 @@ layout: null
 ---
 
 {% include_relative polyfills.js %}
+{% include_relative settings.js %}
 {% include_relative locales.js %}
 {% include_relative mark-parents.js %}
 
@@ -20,13 +21,18 @@ layout: null
     {% include_relative nav.js %}
     {% include_relative videos.js %}
     {% include_relative mcqs.js %}
+    {% include_relative select-list.js %}
     {% include_relative tables.js %}
     {% include_relative footnote-popups.js %}
+    {% include_relative show-hide.js %}
 
     {% if site.data.settings.web.svg.inject == true %}
         {% include_relative svg-inject.min.js %}
         {% include_relative svg-management.js %}
     {% endif %}
+
+    {% comment %} Load after SVG management {% endcomment %}
+    {% include_relative lazyload.js %}
 
 {% endif %}
 

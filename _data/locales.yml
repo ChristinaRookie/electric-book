@@ -129,6 +129,7 @@ en:
   project:
     # Project items are set for the parent language
     # in meta.yml and can be overridden here.
+    # Project 'name' also sets the HTML title on the home page.
     organisation: ""
     url: ""
     email: ""
@@ -145,6 +146,8 @@ en:
   input:
     submit: "Submit"
     send: "Send"
+    show: "Show"
+    hide: "Hide"
   search:
     search-title: "Search"
     placeholder: "Search"
@@ -166,6 +169,8 @@ en:
     feedback-correct: "Correct!"
     feedback-incorrect: "Incorrect"
     feedback-unfinished: "You haven't selected all the correct answers."
+    mark-correct: "&#10003;" # check mark
+    mark-incorrect: "&#10007;" # ballot x
   quiz:
     total: "Total"
   cross-references:
@@ -217,6 +222,8 @@ fr:
   input:
     submit: "Soumettre"
     send: "Envoyer"
+    show: "Montrer"
+    hide: "Cacher"
   search:
     search-title: "Recherche"
     placeholder: "Recherche"
@@ -238,6 +245,8 @@ fr:
     feedback-correct: "Correct!"
     feedback-incorrect: "Incorrect"
     feedback-unfinished: "Vous n'avez pas sélectionné toutes les bonnes réponses."
+    mark-correct: "&#10003;" # check mark
+    mark-incorrect: "&#10007;" # ballot x
   quiz:
     total: "Total"
   cross-references:

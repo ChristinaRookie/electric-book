@@ -2,6 +2,20 @@
 
 ## Latest
 
+* [Zip epubs with Node for better Windows compatibility](https://github.com/electricbookworks/electric-book/pull/441)
+* [Add script for faster updating across Electric Book projects](https://github.com/electricbookworks/electric-book/pull/442)
+* [Enable turning image lazyloading on/off in settings.yml](https://github.com/electricbookworks/electric-book/pull/433)
+* [Implement better paragraph-indent](https://github.com/electricbookworks/electric-book/pull/432)
+* [Support visible URLs in e-ink epubs](https://github.com/electricbookworks/electric-book/pull/431)
+* [Generate separate web and app search indexes](https://github.com/electricbookworks/electric-book/pull/424)
+* [Allow fully translated landing pages](https://github.com/electricbookworks/electric-book/pull/423)
+* [Lazyload images to save user data](https://github.com/electricbookworks/electric-book/pull/419)
+* [Create TOCs outside of book files (and other nav fixes)](https://github.com/electricbookworks/electric-book/pull/413)
+* [Convert .html to .xhtml on epub output](https://github.com/electricbookworks/electric-book/pull/398)
+* [Don't force a blank baseurl on web output](https://github.com/electricbookworks/electric-book/pull/397)
+* [Localise home-page title element in locales](https://github.com/electricbookworks/electric-book/pull/396)
+* [Add ability to hide content behind show-hide buttons](https://github.com/electricbookworks/electric-book/pull/394)
+* [Add ability to use gap-fill questions](https://github.com/electricbookworks/electric-book/pull/389)
 * [Add variables for content and style in side-margin boxes](https://github.com/electricbookworks/electric-book/pull/379)
 * [Enable setting relative size of maths in PDF as a variable](https://github.com/electricbookworks/electric-book/pull/378)
 * [Various minor fixes and refinements](https://github.com/electricbookworks/electric-book/compare/34f8038025a1df45b72f6e7fcdb1e066fdb6ee73...master).
